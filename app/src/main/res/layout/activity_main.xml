@@ -1,37 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:id="@+id/et_search"
+    <data>
+
+        <variable
+            name="vm"
+            type="com.dean.pokemondemo.viewmodel.MainViewModel" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_et"
-        android:layout_marginHorizontal="@dimen/space_et"
-        android:layout_marginTop="@dimen/top_et"
-        android:background="@drawable/bg_et"
-        android:drawableStart="@drawable/ic_baseline_search_24"
-        android:gravity="center_vertical"
-        android:hint="@string/hint_search"
-        android:importantForAutofill="no"
-        android:singleLine="true"
-        android:paddingHorizontal="@dimen/top_et"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextFields" />
+        android:layout_height="match_parent"
+        tools:context=".activity.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/top_et"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_search" />
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_et"
+            android:layout_marginHorizontal="@dimen/space_et"
+            android:layout_marginTop="@dimen/top_et"
+            android:background="@drawable/bg_et"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_search"
+            android:importantForAutofill="no"
+            android:paddingHorizontal="@dimen/top_et"
+            android:singleLine="true"
+            android:text="@={vm.searchStr}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextFields" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/top_et"
+            android:visibility="@{TextUtils.isEmpty(vm.searchStr.trim())?View.GONE:View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
