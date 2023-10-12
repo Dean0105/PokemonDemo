@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PokemonDemo</string>
     <string name="hint_search">search pokemon name</string>
+    <string name="no_data">no data available</string>
 </resources>

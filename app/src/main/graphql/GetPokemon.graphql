@@ -1,0 +1,16 @@
+query Pokemon($offset: Int, $limit: Int, $where: pokemon_v2_pokemon_bool_exp) {
+    pokemon_v2_pokemon(offset: $offset, limit: $limit, where: $where) {
+        id
+        name
+        pokemon_species_id
+        pokemon_v2_pokemonabilities {
+            pokemon_v2_ability {
+                id
+                name
+            }
+        }
+        pokemon_v2_pokemonspecy {
+            capture_rate
+        }
+    }
+}

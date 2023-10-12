@@ -8,4 +8,6 @@
     <dimen name="top_et">5dp</dimen>
     <dimen name="space_et">10dp</dimen>
 
+    <dimen name="text_main">16sp</dimen>
+
 </resources>

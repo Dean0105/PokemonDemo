@@ -1,0 +1,10 @@
+query ColorAndSpecies {
+    pokemon_v2_pokemoncolor {
+        name
+        id
+    }
+    pokemon_v2_pokemonspecies {
+        id
+        name
+    }
+}
