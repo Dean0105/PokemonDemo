@@ -48,9 +48,9 @@ class MainViewModel : BaseViewModel() {
     init {
         launch {
             /**
-             * Discard within 300ms
+             * Discard within 500ms
              */
-            _query.debounce(300).collect {
+            _query.debounce(500).collect {
                 if (it.isNullOrEmpty()) return@collect
                 netSearch(it)
             }
@@ -88,7 +88,7 @@ class MainViewModel : BaseViewModel() {
 
     /**
      * text changes to search
-     * discard within 300ms
+     * discard within 500ms
      */
     fun toSearch(key: String, offset: Int = 0, limit: Int = 20) {
         isLoadMore = false
