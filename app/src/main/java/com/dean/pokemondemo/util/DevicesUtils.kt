@@ -33,7 +33,7 @@ object DevicesUtils {
      * hide soft keyboard
      */
     fun hideSoftInput(activity: Activity) {
-        val imm =activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(activity.window.decorView.windowToken, 0)
     }
 }

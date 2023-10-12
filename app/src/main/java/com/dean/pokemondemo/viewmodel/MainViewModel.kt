@@ -5,9 +5,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.apollographql.apollo3.api.Optional
 import com.dean.pokemondemo.ColorAndSpeciesQuery
-import com.dean.pokemondemo.ColorBean
 import com.dean.pokemondemo.PokemonQuery
 import com.dean.pokemondemo.base.BaseViewModel
+import com.dean.pokemondemo.bean.ColorBean
 import com.dean.pokemondemo.common.GlobalData
 import com.dean.pokemondemo.type.Pokemon_v2_pokemon_bool_exp
 import com.dean.pokemondemo.type.String_comparison_exp
@@ -41,6 +41,9 @@ class MainViewModel : BaseViewModel() {
 
     //search result
     val pokemonResultList by lazy { MutableLiveData<MutableList<PokemonQuery.Pokemon_v2_pokemon>>() }
+
+    //current pokemon
+    val pokemonBean by lazy { MutableLiveData<PokemonQuery.Pokemon_v2_pokemon>() }
 
     init {
         launch {

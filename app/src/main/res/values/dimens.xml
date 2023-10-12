@@ -9,5 +9,6 @@
     <dimen name="space_et">10dp</dimen>
 
     <dimen name="text_main">16sp</dimen>
+    <dimen name="text_large">20sp</dimen>
 
 </resources>

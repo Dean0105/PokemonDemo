@@ -1,13 +1,16 @@
 package com.dean.pokemondemo.activity
 
+import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dean.pokemondemo.PokemonItemAdapter
+import com.dean.pokemondemo.App
 import com.dean.pokemondemo.R
+import com.dean.pokemondemo.adapter.PokemonItemAdapter
 import com.dean.pokemondemo.base.BaseActivity
 import com.dean.pokemondemo.common.GlobalData
 import com.dean.pokemondemo.databinding.ActivityMainBinding
+import com.dean.pokemondemo.util.DevicesUtils
 import com.dean.pokemondemo.viewmodel.MainViewModel
 
 /**
@@ -25,7 +28,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun getLayoutResource() = R.layout.activity_main
 
     override fun initVM() {
-        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        mainViewModel = ViewModelProvider(App.mContext).get(MainViewModel::class.java)
     }
 
     override fun initView() {
@@ -40,6 +43,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         //load more
         mAdapter.loadMoreModule.setOnLoadMoreListener {
             mainViewModel.loadMore(mAdapter.data.size)
+        }
+        //click
+        mAdapter.setOnItemClickListener { adapter, view, position ->
+            DevicesUtils.hideSoftInput(this)
+            mainViewModel.pokemonBean.value = mAdapter.getItem(position)
+            startActivity(Intent(this, DetailActivity::class.java))
+
         }
     }
 

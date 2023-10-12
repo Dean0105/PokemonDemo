@@ -1,7 +1,8 @@
 package com.dean.pokemondemo
 
 import android.app.Application
-import android.content.Context
+import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.ViewModelStoreOwner
 
 /**
  * Copyright (C)
@@ -11,9 +12,12 @@ import android.content.Context
  * Date 2023/10/11
  * Description
  */
-class App : Application() {
+class App : Application(), ViewModelStoreOwner {
     companion object {
-        lateinit var mContext: Context
+        lateinit var mContext: App
+
+        //shared viewModel
+        val sharedViewModelStore by lazy { ViewModelStore() }
     }
 
     override fun onCreate() {
@@ -21,4 +25,7 @@ class App : Application() {
         mContext = this
     }
 
+    override fun getViewModelStore(): ViewModelStore {
+        return sharedViewModelStore
+    }
 }

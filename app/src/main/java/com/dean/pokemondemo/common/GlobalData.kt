@@ -1,6 +1,6 @@
 package com.dean.pokemondemo.common
 
-import com.dean.pokemondemo.ColorBean
+import com.dean.pokemondemo.bean.ColorBean
 
 /**
  * Copyright (C)

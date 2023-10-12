@@ -1,4 +1,4 @@
-package com.dean.pokemondemo
+package com.dean.pokemondemo.bean
 
 /**
  * Copyright (C)

@@ -1,9 +1,10 @@
-package com.dean.pokemondemo
+package com.dean.pokemondemo.adapter
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.dean.pokemondemo.PokemonQuery
+import com.dean.pokemondemo.R
 import com.dean.pokemondemo.databinding.ItemPokemonBinding
 
 /**
